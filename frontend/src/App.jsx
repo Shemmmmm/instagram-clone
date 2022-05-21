@@ -17,6 +17,9 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [currentModal, setCurrentModal] = useState("")
+  const [play, setPlay] = useState("");
+  const [animate, setAnimate] = useState("");
+  const [anim, setAnim] = useState("");
 
   // const [user,setUser] = useState("");
   // onAuthStateChanged(auth, (currentUser) => {
@@ -139,7 +142,28 @@ function App() {
       <Button onClick={() => setCurrentModal("signup")} >Sign Up</Button>
       } */}
       {/* {user?user.username:""} */}
-      <h1>Welcome to my app!</h1>
+      <h1 className='heading'>Welcome to my app!</h1>
+      <div className="radio">
+        <div title='Double click to play previous music' onClick={() => {animate==="animate"?setAnimate(""):setAnimate("animate")}} className={`reverse play_btn ${animate}`}>
+          <hr />
+          <div></div>
+        </div>
+        <div className="play_btn" title={play==="play"?"Pause":"Play"}>
+          {play === "play" ? <div onClick={() => setPlay("")} className="play_pause">
+            <hr />
+            <hr />
+          </div> :
+            <div onClick={() => setPlay("play")} className="forward play">
+              <div></div>
+            </div>
+          }
+        </div>
+        <div title='Double click to play the next music' onClick={() => {anim==="anim"?setAnim(""):setAnim("anim")}} className={`forward play_btn ${anim}`}>
+          <div></div>
+          <hr />
+        </div>
+      </div>
+
       {posts.map((post, id) => (
         <Post key={id} username={`${post.username} `} avatar={post.avatar} caption={post.caption} imageUrl={post.imageUrl} />
       ))}

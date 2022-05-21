@@ -62,7 +62,94 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .signin{
   height: 240px;
+}
+.play_btn{
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  box-shadow: -1px -0.5px 10px 5px gainsboro,1px 0.5px 10px 5px gainsboro;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.play_btn:hover{
+  cursor: pointer;
+}
+
+.play_pause{
+  display: flex;
+}
+
+hr{
+  transform: rotate(90deg);
+  width: 20px;
+  height: 2px;
+  background-color: gainsboro;
+  border-radius: 4px;
+}
+
+body{
+  background-color: whitesmoke;
+}
+.forward{
+  display: flex;
+  align-items: center;
+  transform: scale(0.6);
+}
+.reverse{
+  display: flex;
+  align-items: center;
+  transform: scale(0.6);
+}
+
+.forward>div{
+  width: 0;
+  height: 0;
+  border-left: 15px solid grey;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-radius: 5px;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+
+}
+.reverse>div{
+  width: 0;
+  height: 0;
+  border-right: 15px solid grey;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-radius: 5px;
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+}
+
+.radio{
+  display: flex;
+  gap: 50px;
+  padding: 50px;
+}
+.play{
+  transform: scale(1.6);
+}
+@keyframes scaling {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.05);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.anim{
+animation: scaling .2s ease-in-out;
+}
+.animate{
+animation: scaling .2s;
 }
