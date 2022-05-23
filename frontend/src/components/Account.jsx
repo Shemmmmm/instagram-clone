@@ -3,13 +3,14 @@ import Post from './Post.jsx';
 import { getDocs, collection } from 'firebase/firestore';
 import { Button} from '@mui/material';
 import {db} from "../firebase_config.js";
-
+import {UserAuth} from "../context/Context";
 function Account() {
     const postsCollectionRef = collection(db, 'posts');
     const [posts, setPosts] = useState([]);
     const [play, setPlay] = useState("");
     const [animate, setAnimate] = useState("");
     const [anim, setAnim] = useState("");
+    const {logout} = UserAuth();
 
     useEffect(() => {
         const getPosts = async () => {
@@ -53,7 +54,7 @@ function Account() {
             {posts.map((post, id) => (
                 <Post key={id} username={`${post.username} `} avatar={post.avatar} caption={post.caption} imageUrl={post.imageUrl} />
             ))}
-            <Button>Logout</Button>
+            <Button onClick={logout}>Logout</Button>
 
         </div>
     )

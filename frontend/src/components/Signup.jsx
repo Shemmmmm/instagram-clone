@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
-import { Button, Input } from '@mui/material';
-import {Link} from "react-router-dom";
+import { Button, Input, Alert } from '@mui/material';
+import {Link,useNavigate} from "react-router-dom";
+import { UserAuth } from "../context/Context";
 
 function Signup() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const {createUser} = UserAuth();
+    const navigate = useNavigate();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
+        try {
+            await createUser(username,email,password);
+            navigate("/");
+        } catch (error) {
+            setError(error.message);
+        }
+    }
     return (
         <div>
             <div className='modal'
             >
             </div>
-            <form className='form_modal' action="">
+            <form className='form_modal' onSubmit={handleSubmit}>
+                <Alert>{error}</Alert>
                 <img
                     className='modal_image'
                     src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png'
