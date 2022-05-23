@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { Button, Input } from '@mui/material';
 
 
@@ -32,7 +33,9 @@ function Signin() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <Button type="submit">Login</Button>
+                <p className="paragraph">Don't have an acount?<span><Link className='link' to="/signup"> Sign Up </Link></span></p>
             </form>
+            
         </div>
     );
 }

@@ -12,9 +12,13 @@ function App() {
   return (
 
     <div className='app'>
-      <h1 className='text-center text-3xl font-bold'>
-        Firebase Auth & Context
-      </h1>
+      <div className='app_header'>
+        <img
+          className='app_headerImage'
+          src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png'
+          alt='IG_logo'
+        />
+      </div>
       <AuthContextProvider>
         <Routes>
           <Route path='/' element={<Signin />} />

@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Button, Input } from '@mui/material';
+import {Link} from "react-router-dom";
 
 function Signup() {
     const [username, setUsername] = useState("");
@@ -35,6 +36,8 @@ function Signup() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <Button type="submit">Sign Up</Button>
+                
+                <p className='paragraph'>Have an account?<span><Link className='link' to="/"> Sign In </Link></span></p>
             </form>
         </div>
     )
