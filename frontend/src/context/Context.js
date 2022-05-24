@@ -24,6 +24,8 @@ import { auth } from "../firebase_config.js";
   
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        // let number = currentUser.email.indexOf("@");
+        // let string = currentUser.email.slice(0,number);
         console.log(currentUser);
         setUser(currentUser);
       });

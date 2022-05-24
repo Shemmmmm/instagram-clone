@@ -1,16 +1,30 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Post from './Post.jsx';
 import { getDocs, collection } from 'firebase/firestore';
-import { Button} from '@mui/material';
-import {db} from "../firebase_config.js";
-import {UserAuth} from "../context/Context";
+import { Button } from '@mui/material';
+import { db } from "../firebase_config.js";
+import { UserAuth } from "../context/Context";
+import { Navigate } from "react-router-dom";
 function Account() {
     const postsCollectionRef = collection(db, 'posts');
     const [posts, setPosts] = useState([]);
     const [play, setPlay] = useState("");
     const [animate, setAnimate] = useState("");
     const [anim, setAnim] = useState("");
-    const {logout} = UserAuth();
+    const { logout, user } = UserAuth();
+    const array = {...user.email};
+    let string = "";
+    for (let x in array){
+        if(array[x] === "@") break;
+        string += array[x];
+    }
+    console.log(string);
+    useEffect(() => {
+
+        if (user === null) {
+            Navigate("/");
+        }
+    }, [user]);
 
     useEffect(() => {
         const getPosts = async () => {
@@ -28,8 +42,18 @@ function Account() {
                     src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png'
                     alt='IG_logo'
                 />
+                <div>
+                    <div className="menu"><hr /><hr /><hr />
+                        <div className='menu_content'>
+                            <div className='user'>{string}</div>
+                            <Button onClick={logout} className="logout">Logout</Button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <h1 className='heading'>Welcome to my app!</h1>
+
             <div className="radio">
                 <div title='Double click to play previous music' onClick={() => { animate === "animate" ? setAnimate("") : setAnimate("animate") }} className={`reverse play_btn ${animate}`}>
                     <hr />
@@ -54,7 +78,6 @@ function Account() {
             {posts.map((post, id) => (
                 <Post key={id} username={`${post.username} `} avatar={post.avatar} caption={post.caption} imageUrl={post.imageUrl} />
             ))}
-            <Button onClick={logout}>Logout</Button>
 
         </div>
     )

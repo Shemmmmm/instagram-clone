@@ -4,7 +4,6 @@ import {Link,useNavigate} from "react-router-dom";
 import { UserAuth } from "../context/Context";
 
 function Signup() {
-    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -14,7 +13,7 @@ function Signup() {
         e.preventDefault();
         setError("");
         try {
-            await createUser(username,email,password);
+            await createUser(email,password);
             navigate("/");
         } catch (error) {
             setError(error.message);
@@ -26,17 +25,11 @@ function Signup() {
             >
             </div>
             <form className='form_modal' onSubmit={handleSubmit}>
-                <Alert>{error}</Alert>
+                {error&&<Alert severity='error'>{error}</Alert>}
                 <img
                     className='modal_image'
                     src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png'
                     alt='IG_logo'
-                />
-                <Input
-                    type='text'
-                    placeholder='username'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
                 />
                 <Input
                     type='email'

@@ -8,6 +8,9 @@
   background-color: white;
   border-bottom: 1px solid lightgrey;
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
 }
 .app{
   background-color: white;
@@ -88,9 +91,14 @@
 .play_pause{
   display: flex;
 }
+.play_pause hr{
+  transform: rotate(90deg);
+}
+.play_btn hr{
+  transform: rotate(90deg);
+}
 
 hr{
-  transform: rotate(90deg);
   width: 20px;
   height: 2px;
   background-color: gainsboro;
@@ -164,4 +172,42 @@ span{
 .link{
   color: rgb(55, 102, 143);
   text-decoration: none;
+}
+.user{
+  padding: 6px;
+  text-transform:capitalize;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+}
+.menu_content{
+  width: 200px;
+  height: 100px;
+  background-color: aqua;
+  padding: 6px;
+  margin-left: -100px;
+  align-items: center;
+  opacity: 0;
+  z-index: 1;
+  position: absolute;
+  top: 150%;
+  transition-duration: 1s;
+}
+.menu>.menu_content::after{
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-top: -10px;
+  border: 7px solid transparent;
+  border-bottom-color:aqua;
+}
+.menu:hover{
+  cursor: pointer;
+}
+.menu:hover .menu_content{
+  opacity: 1;
 }

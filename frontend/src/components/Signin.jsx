@@ -27,7 +27,7 @@ function Signin() {
             >
             </div>
             <form className='form_modal signin' onSubmit={handleSubmit}>
-                <Alert>{error}</Alert>
+                {error&&<Alert severity='error'>{error}</Alert>}
                 <img
                     className='modal_image'
                     src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png'
