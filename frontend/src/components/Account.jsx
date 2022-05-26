@@ -18,7 +18,6 @@ function Account() {
         if(array[x] === "@") break;
         string += array[x];
     }
-    console.log(string);
     useEffect(() => {
 
         if (user === null) {
