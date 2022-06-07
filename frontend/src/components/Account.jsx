@@ -21,7 +21,7 @@ function Account() {
         if (array[x] === "@") break;
         string += array[x];
     }
-
+    
     const createUser = async (e) => {
         e.preventDefault();
         await addDoc(postsCollectionRef, { username, avatar, caption, imageUrl });
@@ -44,7 +44,7 @@ function Account() {
             setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
         getPosts();
-    }, []);
+    }, [username]);
 
     return (
         <div>
