@@ -73,96 +73,6 @@
 .signin{
   height: 250px;
 }
-.play_btn{
-  width: 40px;
-  height: 40px;
-  background-color: white;
-  box-shadow: 0px 0px 10px 5px gainsboro;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-.play_btn:hover{
-  cursor: pointer;
-}
-
-.play_pause{
-  display: flex;
-}
-.play_pause hr{
-  transform: rotate(90deg);
-}
-.play_btn hr{
-  transform: rotate(90deg);
-}
-
-hr{
-  width: 20px;
-  height: 2px;
-  background-color: gainsboro;
-  border-radius: 4px;
-}
-
-.forward{
-  display: flex;
-  align-items: center;
-  transform: scale(0.6);
-}
-.reverse{
-  display: flex;
-  align-items: center;
-  transform: scale(0.6);
-}
-
-.forward>div{
-  width: 0;
-  height: 0;
-  border-left: 15px solid grey;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-radius: 5px;
-  border-top-right-radius: 100%;
-  border-bottom-right-radius: 100%;
-
-}
-.reverse>div{
-  width: 0;
-  height: 0;
-  border-right: 15px solid grey;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-radius: 5px;
-  border-top-left-radius: 100%;
-  border-bottom-left-radius: 100%;
-}
-
-.radio{
-  display: flex;
-  gap: 50px;
-  padding: 50px;
-}
-.play{
-  transform: scale(1.6);
-}
-@keyframes scaling {
-  0%{
-    transform: scale(1);
-  }
-  50%{
-    transform: scale(1.05);
-  }
-  100%{
-    transform: scale(1);
-  }
-}
-.anim{
-animation: scaling .2s ease-in-out;
-}
-.animate{
-animation: scaling .2s;
-}
 .paragraph{
   text-align: center;
 }
@@ -210,4 +120,25 @@ span{
 }
 .menu:hover .menu_content{
   opacity: 1;
+}
+.image_upload{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  gap: 5px;
+}
+progress{
+  width: 100%;
+}
+.post_action{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+input[type='reset']{
+display: none;
 }
