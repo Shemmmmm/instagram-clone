@@ -1,7 +1,15 @@
-import React from 'react'
-// import img from "./images/unsplash.jpg"
-import Avatar from '@mui/material/Avatar'
-function Post({username, caption , avatar, imageUrl}) {
+import React, { useState } from 'react';
+import Avatar from '@mui/material/Avatar';
+import InputEmoji from 'react-input-emoji';
+
+
+function Post({ username, caption, avatar, imageUrl }) {
+  const [text, setText] = useState('')
+
+  function handleOnEnter(text) {
+    console.log('enter', text)
+  }
+
   return (
     <div className='post'>
       <div className="post_header">
@@ -10,6 +18,15 @@ function Post({username, caption , avatar, imageUrl}) {
       </div>
       <img className='post_img' src={imageUrl} alt='post_image' />
       <h4 className='post_text'><strong>{username}</strong>{caption}</h4>
+      <div>
+        <InputEmoji
+          value={text}
+          onChange={setText}
+          cleanOnEnter
+          onEnter={handleOnEnter}
+          placeholder="Add a comment..."
+        />
+      </div>
     </div>
   )
 }
